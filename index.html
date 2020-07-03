@@ -1,0 +1,178 @@
+<html>
+<head>
+
+<!-- Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Geomate</title>
+
+<!-- Source Sans Pro (400, 700) -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Source Code Por (400, 500) -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+button.back {
+  background: none;
+  background-image: url( img/chevron-left.svg );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-color: #1473e6;
+  border: none;
+  border-radius: 40px 0 0 40px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 3px 0 0;
+  height: 40px;
+  outline: none;
+  padding: 0;  
+  width: 40px;
+}
+
+button.cta {
+  background: none;
+  background-color: #1473e6;
+  background-image: url( img/chevron-right.svg );
+  background-position: center right 12px;
+  background-repeat: no-repeat;
+  background-size: 22px;  
+  border: none;
+  border-radius: 0 40px 40px 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+  height: 40px;
+  outline: none;
+  padding: 0 40px 0 20px;
+}
+
+button.primary {
+  background: none;
+  border: solid 2px #4b4b4b;
+  border-radius: 40px;
+  box-sizing: border-box;
+  color: #4b4b4b;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+  height: 40px;
+  outline: none;
+  padding: 0 20px 0 20px;  
+}
+
+div.spacer {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+h3 {
+  color: #4b4b4b;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0 8px 8px 8px;
+  padding: 0;
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  margin: 0 8px 8px 8px;
+}
+
+#geomate {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#hud {
+  background-color: white;
+  border: solid 1px #cacaca;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: calc( 100vw - 16px );
+  margin: 8px;
+}
+</style>
+
+<!-- Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="geomate">
+
+  <div id="hud">
+    <div style="display: flex; flex-direction: row;">
+      <img src="img/search.svg" width="22" height="22" style="margin: 8px 0 0 8px;">
+      <img src="img/star.svg" width="22" height="22" style="margin: 8px 0 0 8px;">
+      <img src="img/star.svg" width="22" height="22" style="margin: 8px 0 0 0;">
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">                  
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">                        
+      <div class="spacer"></div>
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">                  
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">                        
+      <img src="img/star-outline.svg" width="22" height="22" style="margin: 8px 0 0 0;">                              
+      <img src="img/star.svg" width="22" height="22" style="margin: 8px 8px 0 0;">      
+      <img src="img/sweat.svg" width="22" height="22" style="margin: 8px 8px 0 0;">      
+    </div>
+    <svg style="flex-grow: 1; flex-basis: 0;">
+      <circle r="85" fill="none" stroke="#4b4b4b" stroke-width="2" cx="50%" cy="50%"></circle>
+    </svg>
+    <div style="display: flex; flex-direction: row;">
+      <div class="spacer"></div>
+      <img src="img/hiker.svg" width="22" height="22" style="margin: 0 8px 8px 0;">
+      <img src="img/information.svg" width="22" height="22" style="margin: 0 8px 8px 0; visibility: hidden;">
+      <img src="img/compass.svg" width="22" height="22" style="margin: 0 8px 8px 0; visibility: hidden;">      
+      <img src="img/smile.svg" width="22" height="22" style="margin: 0 8px 8px 0; visibility: hidden;">      
+    </div>
+  </div>
+  <div id="controls">
+    <button class="back"></button>
+    <button class="cta">Next</button>
+    <div class="spacer"></div>
+    <button class="primary">Page</button>
+  </div>
+
+</div>
+
+<script>
+const app = new Vue( {
+  el: '#geomate',
+  data: {
+    message: 'Hello Vue!'
+  }
+} );
+</script>
+
+</body>
+</html>
